@@ -4,7 +4,7 @@ Code for the shiny app of the 2019-nCoV traveler screening model. Can be used to
 
 A current version of the app is hosted at https://faculty.eeb.ucla.edu/lloydsmith/screeningmodel
 
-More information on the underlying model and figures presented can be found at https://kgostic.github.io/traveller_screening/
+More information on the underlying model and figures presented can be found at https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1
 
 ## How to run
 
