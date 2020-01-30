@@ -461,13 +461,16 @@ make_plots = function(meanIncubate, meanToAdmit, R0, ff, gg, flight.hrs, screenT
         geom_hline(yintercept = 1.125) +
         geom_segment(data = dashedLine, aes(x = as.numeric(strategy)-.5, xend = as.numeric(strategy)+.5, y = 1-yy, yend = 1-yy), linetype = 2)+
         scale_x_discrete(labels=c("fever & risk","fever","risk"))+
-        theme_bw(base_size = 16) -> stackedBars
+        theme_bw(base_size = 16)+
+        theme(legend.position="bottom",legend.title = element_blank())+
+        guides(fill = guide_legend(nrow = 3))-> stackedBars
     
     dashedCurve <- filter(rib, outcome =="missed: had both")
     ggplot(rib)+
         geom_ribbon(aes(x = days.since.exposed, ymin = yymin, ymax = yymax, fill = outcome))+
         scale_fill_manual(values = colList,guide = guide_legend(reverse=TRUE))+
         theme_bw(base_size = 16) +
+        theme(legend.position="none")+
         geom_line(data=dashedCurve,aes(x=days.since.exposed,y=yymax),lty=2)+
         #theme(legend.position = 'none')+
         ylab('Probability exposed individual is missed or detected')+
