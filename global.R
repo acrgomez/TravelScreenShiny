@@ -453,7 +453,7 @@ make_plots = function(meanIncubate, meanToAdmit, R0, ff, gg, flight.hrs, screenT
         geom_bar(aes(x = strategy, y = value, fill = outcome), stat = 'identity')+
         scale_fill_manual(values = rev(colList)) +
         xlab('Screening type')+
-        ylab('Fraction screened                  Fraction detected') +
+        ylab('Fraction screened          Fraction detected') +
         geom_text(data=fracMis,aes(x=1:3,y=1-lower+1.3,label=paste(round(1-med,4)*100,"% [",round(1-lower,4)*100,", ",round(1-upper,4)*100,"]",sep="")))+
         geom_segment(data=fracMis,aes(x = screen_type, xend = screen_type, y = 1-lower+1.25, yend = 1-upper+1.25),lwd=2)+
         geom_point(data=fracMis,aes(x = screen_type, y = 1-med+1.25), size = 4,alpha=.7)+
@@ -463,7 +463,7 @@ make_plots = function(meanIncubate, meanToAdmit, R0, ff, gg, flight.hrs, screenT
         scale_x_discrete(labels=c("fever & risk","fever","risk"))+
         theme_bw(base_size = 16)+
         theme(legend.position="bottom",legend.title = element_blank())+
-        guides(fill = guide_legend(nrow = 3))-> stackedBars
+        guides(fill = guide_legend(nrow = 5))-> stackedBars
     
     dashedCurve <- filter(rib, outcome =="missed: had both")
     ggplot(rib)+

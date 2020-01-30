@@ -58,7 +58,7 @@ shinyServer(function(input, output,session) {
                    screenType = as.character(input$relT))
         
        
-    },height=900)
+    },height=1000)
 
     output$columnText1 <- renderText({
       "
