@@ -62,7 +62,11 @@ shinyServer(function(input, output,session) {
 
     output$columnText1 <- renderText({
       "
-This is an adaptation of the model presented in  <a href='https://elifesciences.org/articles/05564'>Gostic KM, Kucharski AJ, Lloyd-Smith JO. (2015) eLife 4:e05564</a>,
+    Preprint with detailed information on the model is now on medrxiv: <a href='https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1'>https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1</a>
+      
+      <br>
+      <br>
+      This is an adaptation of the model presented in  <a href='https://elifesciences.org/articles/05564'>Gostic KM, Kucharski AJ, Lloyd-Smith JO. (2015) eLife 4:e05564</a>,
       which evaluates the effectiveness of traveller screening for emerging pathogens. 
       Further details can be found there, and in a manuscript we have written on traveller 
       screening for 2019-nCoV which presents estimates and uncertainties that reflect 
@@ -102,10 +106,14 @@ This is an adaptation of the model presented in  <a href='https://elifesciences.
       
       
       This Shiny app is based on the analysis presented in:
+      <br>
+      <a href='https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1'>
       Estimated effectiveness of traveller screening to prevent international 
       spread of 2019 novel coronavirus (2019-nCoV), by Katelyn M. Gostic, Ana C. R. Gomez, 
-      Riley O. Mummah, Adam J. Kucharski, and James O. Lloyd-Smith.
-            <br>
+      Riley O. Mummah, Adam J. Kucharski, and James O. Lloyd-Smith. </a>
+            
+      
+      <br>
       <br>
       Code development for the app by Ana Gomez (acrgomez at ucla dot edu), 
       with underlying model code from Katie Gostic (kgostic at uchicago dot edu).
