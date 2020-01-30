@@ -10,6 +10,7 @@ More information on the underlying model and figures presented can be found at h
 
 We recommend using Rstudio. Requires CRAN packages shiny, tidyverse, gridExtra, and viridis.
 
+![Screenshot](appscreenshot.png)
 
 
 ## Authors
