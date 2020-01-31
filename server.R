@@ -118,6 +118,7 @@ shinyServer(function(input, output,session) {
       Code development for the app by Ana Gomez (acrgomez at ucla dot edu), 
       with underlying model code from Katie Gostic (kgostic at uchicago dot edu).
             <br>
+      Shiny app code is available in <a href='https://github.com/acrgomez/TravelScreenShiny'>this Github repo</a>
       <br>
       The associated manuscript is currently available at <a href='https://kgostic.github.io/traveller_screening/'>https://kgostic.github.io/traveller_screening/</a>
             <br>
