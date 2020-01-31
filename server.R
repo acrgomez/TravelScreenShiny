@@ -62,7 +62,7 @@ shinyServer(function(input, output,session) {
 
     output$columnText1 <- renderText({
       "
-    Preprint with detailed information on the model is now on medrxiv: <a href='https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1'>https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1</a>
+    Preprint with detailed information on the model is now on medrxiv: <a href='https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1'>https://doi.org/10.1101/2020.01.28.20019224</a>
       
       <br>
       <br>
