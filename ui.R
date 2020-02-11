@@ -1,11 +1,11 @@
 library(shiny);library(tidyverse);library(viridis)
 
 shinyUI(fluidPage(
-  titlePanel("Estimating the effectiveness of traveller screening programs to detect people infected with 2019-nCoV"),
+  titlePanel("Estimating the effectiveness of traveller screening programs to detect people infected with COVID-19"),
   fluidRow(
     column(width = 3,
            
-           h5("Last updated: 2020-Jan-30"),
+           h5("Last updated: 2020-Feb-11"),
            h3("Parameters"),
            helpText("Please select parameter values", 
                     "and click submit"),
