@@ -5,7 +5,7 @@ shinyUI(fluidPage(
   fluidRow(
     column(width = 3,
            
-           h5("Last updated: 2020-Feb-11"),
+           h5("Last updated: 2020-Feb-13"),
            h3("Parameters"),
            helpText("Please select parameter values", 
                     "and click submit"),

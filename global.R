@@ -463,6 +463,8 @@ make_plots = function(meanIncubate, meanToAdmit, R0, ff, gg, flight.hrs, screenT
         scale_x_discrete(labels=c("fever & risk","fever","risk"))+
         theme_bw(base_size = 16)+
         theme(legend.position="bottom",legend.title = element_blank())+
+        ggtitle("Screening in a population of infected travellers, 
+                each with a different time of exposure")+
         guides(fill = guide_legend(nrow = 5))-> stackedBars
     
     dashedCurve <- filter(rib, outcome =="missed: had both")
@@ -471,6 +473,7 @@ make_plots = function(meanIncubate, meanToAdmit, R0, ff, gg, flight.hrs, screenT
         scale_fill_manual(values = colList,guide = guide_legend(reverse=TRUE))+
         theme_bw(base_size = 16) +
         theme(legend.position="none")+
+        ggtitle("Probability of detecting any single infected individual, given time since exposure")+
         geom_line(data=dashedCurve,aes(x=days.since.exposed,y=yymax),lty=2)+
         #theme(legend.position = 'none')+
         ylab('Probability exposed individual is missed or detected')+
