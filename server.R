@@ -18,10 +18,10 @@ shinyServer(function(input, output,session) {
     
     output$figPanel <- renderPlot({
         if(input$colorblind) { 
-          colList<<- cividis(9)
+          colList<<- viridis(9)
           
         } else {
-          colList <<- c('darkseagreen2', 'deepskyblue', 'seagreen4', 'royalblue3', 'bisque', 'darksalmon', 'brown3', 'firebrick1','darkorange')
+          colList <<- c('skyblue', 'deepskyblue', 'royalblue1', 'mediumblue', 'khaki1', 'goldenrod1', 'darkorange', 'firebrick1')
           
           }
         ##Grid of ribbon plots
@@ -31,12 +31,10 @@ shinyServer(function(input, output,session) {
         del.d <<- ftime/24
         R0 <<- as.numeric(input$R0)
         gg <<- as.numeric(input$gg)
-        f.evaded <<- as.numeric(input$f.evaded)
         
-        meanIncubate <<- as.numeric(input$meanIncubate)
+
         meanToAdmit <<- as.numeric(input$meanToAdmit)
-        scaleIncubate <<- 2.73
-        shapeIncubate <<- meanIncubate/scaleIncubate
+
         
         ##Advanced parameters
         #Specify efficacy parameters. These will be fed in to the external functions.
@@ -48,6 +46,11 @@ shinyServer(function(input, output,session) {
         popn <<- as.numeric(input$popn)        # population size of infected travelers
         
         
+        meanIncubate <<- as.numeric(input$meanIncubate)
+        varIncubate <<- as.numeric(input$varIncubate)
+        
+        scaleIncubate <<- varIncubate/meanIncubate
+        shapeIncubate <<- meanIncubate/scaleIncubate
         
         make_plots(meanIncubate = as.numeric(input$meanIncubate), 
                    meanToAdmit = as.numeric(input$meanToAdmit), 
@@ -58,23 +61,32 @@ shinyServer(function(input, output,session) {
                    screenType = as.character(input$relT))
         
        
-    },height=1000)
+    },height=1500)
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
 
     output$columnText1 <- renderText({
       "
-    Preprint with detailed information on the model is on medrxiv: <a href='https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1'>https://doi.org/10.1101/2020.01.28.20019224</a>
+      This is an interactive version of the model presented in
+     <a href='https://elifesciences.org/articles/55570'>Gostic KM, Gomez ACR, Mummah RO, Kucharski AJ, Lloyd-Smith JO. (2020) eLife 9:e55570 </a>
       
       <br>
       <br>
-      This is an adaptation of the model presented in  <a href='https://elifesciences.org/articles/05564'>Gostic KM, Kucharski AJ, Lloyd-Smith JO. (2015) eLife 4:e05564</a>,
-      which evaluates the effectiveness of traveller screening for emerging pathogens. 
-      Further details can be found there, and in a manuscript we have written on traveller 
-      screening for COVID-19 which presents estimates and uncertainties that reflect 
-      current knowledge of this virus.
-      <br>
+
+      The model presented here estimates the impact of different screening programs given
+      key COVID-19 life history and epidemiological parameters.
       As new parameter estimates and more knowledge of the natural history of COVID-19 become 
       available, this app can be used to estimate the effectiveness of different traveller 
-      screening programs.  
+      screening programs.   
       
       <br>
       <br>
@@ -92,10 +104,16 @@ shinyServer(function(input, output,session) {
       that led to their infection being detected or missed (as shown in the legend).
       <br>
       <br>
-      The last plot shows the expected proportion of exposed travellers who were detected or
+      The third plot shows the expected proportion of exposed travellers who were detected or
       missed by screening as a function of the time between an individual's exposure and the
       departure leg of the journey. The colors again indicate the reason they were detected or
       missed. 
+      <br>
+      <br>
+      The last plot shows the assumed incubation period distribution. 
+      This is a gamma distribution, which you can change by adjusting the mean and variance in
+      the interactive panel to the left.
+    
       
       
       <br>
@@ -107,11 +125,9 @@ shinyServer(function(input, output,session) {
       
       This Shiny app is based on the analysis presented in:
       <br>
-      <a href='https://www.medrxiv.org/content/10.1101/2020.01.28.20019224v1'>
-      Estimated effectiveness of traveller screening to prevent international 
-      spread of 2019 novel coronavirus (COVID-19), by Katelyn M. Gostic, Ana C. R. Gomez, 
-      Riley O. Mummah, Adam J. Kucharski, and James O. Lloyd-Smith. </a>
-            
+     <a href='https://elifesciences.org/articles/55570'>Gostic KM, Gomez ACR, Mummah RO, 
+     Kucharski AJ, Lloyd-Smith JO. (2020) eLife 9:e55570 </a>
+
       
       <br>
       <br>
@@ -120,8 +136,6 @@ shinyServer(function(input, output,session) {
             <br>
       Shiny app code is available in <a href='https://github.com/acrgomez/TravelScreenShiny'>this Github repo</a>
       <br>
-      The associated manuscript is currently available at <a href='https://kgostic.github.io/traveller_screening/'>https://kgostic.github.io/traveller_screening/</a>
-            <br>
       <br>
       Funding support from NSF, DARPA, SERDP, The McDonnell foundation, CAPES, 
       Wellcome Trust & the Royal Society
